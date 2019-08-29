@@ -1,6 +1,2 @@
-# hello-world
-Just another repository
-
-Hello,
-
-My name is Daniel Barit. I like creating and innovaiting. Nice to meet you.
+# Repo for ITM352 Fall 2019 Labs and Assignments
+All ITM 352 work posted here
