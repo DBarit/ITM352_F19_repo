@@ -1,0 +1,35 @@
+<span id="output_span"></span>
+
+<script>
+
+    //Exercise 1: Precedence
+    age = 20;
+    fav_num = 7;
+    day_of_birth = 7;
+    month_of_birth = 6;
+    document.getElementById("output_span").innerHTML =
+        (age + fav_num / day_of_birth * month_of_birth);
+    //(age + fav_num) / day_of_birth * month_of_birth
+
+    //Exercise 3: Autoincrement and Autodecrement
+    n = 20;
+    m = 2;
+
+    //Exercise 5: String concatenation and String templates
+    first_name = "Daniel Francis";
+    last_name = "Barit";
+    document.write(`${first_name} ${last_name} I have \$${1 + 2}`);
+
+    //Exercise 6: Strings, single, quotes, double quotes, string templates
+    document.write(`
+    <table border="1">
+    <tr><th>Line</th><th>Name</th></tr>
+    <tr><td>1.</td><td>${first_name}</td></tr>
+    <tr><td>2.</td><td><br />${first_name}</td></tr>
+    <tr><td>3.</td><td>\n${first_name}</td></tr>
+    <tr><td>4.</td><td>'\n${first_name}'</td></tr>
+    <tr><td>5.</td><td>"\n${first_name}"</td></tr>
+    </table>
+    `);
+
+</script>
