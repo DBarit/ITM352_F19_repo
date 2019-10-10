@@ -1,0 +1,14 @@
+<script>
+    /*
+        Design an algorithm that asks for a user’s height in feet and inches and their weight in pounds. 
+        The output of user’s height and weight is supposed to be the user’s height in meters and the user’s weight in kilos.
+    */
+    var feetHeight = parseInt(prompt('what is your height in feet? Enter feet only'));
+    var inchHeight = parseInt(prompt('you are ' + feetHeight + ' feet and how many inches? Enter number only'));
+    var poundWeight = parseInt(prompt('what is your weight in pounds? Enter number only'));
+    var totalHeight = feetHeight * 12 + inchHeight;
+    var meterHeight = totalHeight / 39.37;
+    var kiloWeight = poundWeight / 2.2;
+    document.write("You're height in meters is " + meterHeight.toFixed(2) + " meters" + '<br>'
+        + "You're weight in kilos is " + kiloWeight.toFixed(2) + " kilos");
+</script>
