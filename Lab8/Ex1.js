@@ -7,5 +7,3 @@ while (num != age) {
     num++;
 }
 console.log(`You must be ${num} years old!`);
-
-
