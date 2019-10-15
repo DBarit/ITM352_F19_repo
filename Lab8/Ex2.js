@@ -10,7 +10,6 @@ while (num < age) {
     num++;
 }
 
-
 //Exercise 2b: Continue
 var age = 20;
 var num = 0;
@@ -23,7 +22,6 @@ while (num < age) {
     console.log(`Are you ${num} years olds?`);
 }
 console.log(`You must be ${num} years old!`);
-
 
 //Exercise 2c: Terminating
 var age = 20;
