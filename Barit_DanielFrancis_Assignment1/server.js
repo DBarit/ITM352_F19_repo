@@ -1,3 +1,9 @@
+/*
+Author: Daniel Francis Barit
+Date: 11/14/2019
+File Description: Server Processing Code
+*/
+
 var express = require('express'); //Run express
 var app = express(); //Start express
 var myParser = require("body-parser"); //Require body-parser
