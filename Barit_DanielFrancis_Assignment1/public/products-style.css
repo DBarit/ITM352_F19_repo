@@ -1,0 +1,130 @@
+/* General */
+body{
+    margin: 0 auto;
+    text-align: center;
+    display: inline;
+    background-color:whitesmoke;
+}
+main{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+header{
+  margin-top: -20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Homepage CSS */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+/* Styling all product images */
+img{
+    width: 250px;
+    height: 200px;
+}
+/* Enlarges image on mouse hover */
+.img-hover-zoom {
+    transition: transform .5s; /* Animation */
+  }
+  /* On mouse hover, zoom image 150% */
+  .img-hover-zoom:hover{
+    transform: scale(1.5); 
+  }
+
+/* Styling the products position relative to one another */
+section {
+  float: left;
+  width: 30%;
+  padding: 20px;
+}
+  /* Create border around all products */
+  .container {
+    border-radius: 3em;
+    background-color: rgba(255, 255, 255, 0.52);
+    border: 2px solid black;
+    padding: 30px;
+  }
+
+/* Postion of button on each product page */
+.button{
+
+  background-color:#333;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Retrived from W3Schools. Source: https://www.w3schools.com/css/css_navbar.asp */
+/* Navigation Bar Design */
+ul {
+    list-style-type: none; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(0, 17, 255);
+  }
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

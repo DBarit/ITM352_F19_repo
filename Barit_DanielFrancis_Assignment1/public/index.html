@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
+    <title>Home Page</title>
+</head>
+
+<body>
+
+    <!-- Retrived from W3Schools. Source: https://www.w3schools.com/css/css_navbar.asp (HTML & CSS) -->
+    <!-- Navigation Bar -->
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="laptop.html" class="dropbtn">Laptops</a>
+            <div class="dropdown-content">
+                <a href="laptop.html">Apple MacBook Pro 15''</a>
+                <a href="laptop.html">Razer Blade Pro 17''</a>
+                <a href="laptop.html">Lenovo ThinkPad X1 Carbon Gen 7</a>
+                <a href="laptop.html">Dell XPS 15 7590</a>
+                <a href="laptop.html">Acer Swift 7</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="cellphones.html" class="dropbtn">Cell Phones</a>
+            <div class="dropdown-content">
+                <a href="cellphones.html">Apple iPhone 11 Pro Max</a>
+                <a href="cellphones.html">Samsung Galaxy Note 10+</a>
+                <a href="cellphones.html">Google Pixel 4 XL</a>
+                <a href="cellphones.html">Huawei P30 Pro</a>
+                <a href="cellphones.html">OnePlus 7 Pro</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="tablets.html" class="dropbtn">Tablets</a>
+            <div class="dropdown-content">
+                <a href="tablets.html">Apple iPad Pro 12.9''</a>
+                <a href="tablets.html">Apple 10.2'' iPad</a>
+                <a href="tablets.html">Microsoft Surface Pro X</a>
+                <a href="tablets.html">Samsung Galaxy Tab S6</a>
+                <a href="tablets.html">Lenovo Yoga Tab 3 Pro</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="videogames.html" class="dropbtn">Video Games</a>
+            <div class="dropdown-content">
+                <a href="videogames.html">Playstation 4 Pro</a>
+                <a href="videogames.html">Xbox One X</a>
+                <a href="videogames.html">Nintendo Switch</a>
+                <a href="videogames.html">Alienware Area-51 Gaming Desktop</a>
+                <a href="videogames.html">Corsair ONE i165 Compact Gaming PC</a>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Title/Header of my store -->
+    <header>
+        <h1 style="font-size: 500%; font-family: Gruppo;">Daniel's Digital Devices</h1>
+    </header>
+    <h2>Here is a list of products that we sell!</h2>
+
+    <!-- Display the different products that my store sells -->
+    <main>
+        <div class="row">
+            <div class="column img-hover-zoom">
+                <h2>Laptops</h2>
+                <a href="laptop.html">
+                    <img src="images/laptop.png">
+                </a>
+            </div>
+            <div class="column img-hover-zoom">
+                <h2>Cell Phones</h2>
+                <a href="cellphones.html">
+                    <img src="./images/phone.png">
+                </a>
+            </div>
+            <div class="column img-hover-zoom">
+                <h2>Tablets</h2>
+                <a href="tablets.html">
+                    <img src="./images/tablet.png">
+                </a>
+            </div>
+            <div class="column img-hover-zoom">
+                <h2>Video Games</h2>
+                <a href="videogames.html">
+                    <img src="./images/videogames.png">
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

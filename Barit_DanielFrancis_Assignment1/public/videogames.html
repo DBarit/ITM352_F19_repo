@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <title>Video Games</title>
+
+    <script>
+        //Setting numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Video Games page
+        var product16 = {
+            product: "Playstation 4 Pro 1TB Console",
+            price: 354.99,
+            image: "./images/Games/PS4Pro.png",
+            specifications: "CPU : 2.1GHz 8-core AMD custom Jaguar, 8 cores <br> GPU: 4.2TFLOPS, AMD Radeon™ <br> Memory: 8GB GDDR5 / Storage: 1TB <br> Dimensions: 12.8 x 11.6 x 2.1 inches <br> Weight: 7.2 lbs"
+        };
+        var product17 = {
+            product: "Xbox One X 1TB Console",
+            price: 408.99,
+            image: "./images/Games/XboxOneX.png",
+            specifications: "CPU: Eight custom x86 cores clocked at 2.3GHz <br> GPU: 6TFLOPS, AMD Radeon™ <br> Memory: 12GB GDDR5 / Storage: 1TB <br> Dimensions: 11.8 x 9.4 x 2.4 inches <br> Weight: 7.2lbs"
+        };
+        var product18 = {
+            product: "Nintendo Switch w/Grey Joy-Cons",
+            price: 299.00,
+            image: "./images/Games/Switch.png",
+            specifications: "CPU: Four ARM Cortex A57 cores (theoretical max 2GHz) <br> GPU: 256 CUDA cores (theoretical max 1GHz) <br> Memory: 4GB / Storage: 32GB <br> Dimensions: 1280x720 inches <br> Weight: 0.88lbs"
+        };
+        var product19 = {
+            product: "Alienware Area-51 Gaming Desktop Threadripper Edition",
+            price: 3699.99,
+            image: "./images/Games/AlienwarePC.png",
+            specifications: "CPU: 3.4GHz AMD Ryzen Threadripper 1950X (16-core, 32MB cache, up to 4.2GHz) <br> GPU: Nvidia GTX 1080 Ti <br> RAM: 32GB (DDR4 2,667MHz) / Storage: 2TB HDD <br> Dimensions: 10.7 x 25.2 x 22.4 inches <br> Weight: 61.73 pounds (28kg)"
+        };
+        var product20 = {
+            product: "Corsair ONE i165 Compact Gaming PC",
+            price: 3499.99,
+            image: "./images/Games/CorsairONE.png",
+            specifications: "CPU: Intel Core i9 9900K (3.6GHz) <br> GPU: NVIDIA GeForce RTX 2080 Ti 11GB GDDR6 <br> RAM: 32GB (DDR4-2666) / Storage: 2TB HDD <br> Dimensions: 13.19 x 11.46 x 19.25 inches <br> Weight: 16.27 pounds"
+        };
+
+        //Create an array of the products listed and set it to a variable 
+        var products = [product16, product17, product18, product19, product20];
+    </script>
+</head>
+
+<body>
+
+    <!-- Retrived from W3Schools. Source: https://www.w3schools.com/css/css_navbar.asp (HTML & CSS) -->
+    <!-- Navigation Bar -->
+    <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="laptop.html" class="dropbtn">Laptops</a>
+                <div class="dropdown-content">
+                    <a href="laptop.html">Apple MacBook Pro 15''</a>
+                    <a href="laptop.html">Razer Blade Pro 17''</a>
+                    <a href="laptop.html">Lenovo ThinkPad X1 Carbon Gen 7</a>
+                    <a href="laptop.html">Dell XPS 15 7590</a>
+                    <a href="laptop.html">Acer Swift 7</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="cellphones.html" class="dropbtn">Cell Phones</a>
+                <div class="dropdown-content">
+                    <a href="cellphones.html">Apple iPhone 11 Pro Max</a>
+                    <a href="cellphones.html">Samsung Galaxy Note 10+</a>
+                    <a href="cellphones.html">Google Pixel 4 XL</a>
+                    <a href="cellphones.html">Huawei P30 Pro</a>
+                    <a href="cellphones.html">OnePlus 7 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="tablets.html" class="dropbtn">Tablets</a>
+                <div class="dropdown-content">
+                    <a href="tablets.html">Apple iPad Pro 12.9''</a>
+                    <a href="tablets.html">Apple 10.2'' iPad</a>
+                    <a href="tablets.html">Microsoft Surface Pro X</a>
+                    <a href="tablets.html">Samsung Galaxy Tab S6</a>
+                    <a href="tablets.html">Lenovo Yoga Tab 3 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="videogames.html" class="dropbtn">Video Games</a>
+                <div class="dropdown-content">
+                    <a href="videogames.html">Playstation 4 Pro</a>
+                    <a href="videogames.html">Xbox One X</a>
+                    <a href="videogames.html">Nintendo Switch</a>
+                    <a href="videogames.html">Alienware Area-51 Gaming Desktop</a>
+                    <a href="videogames.html">Corsair ONE i165 Compact Gaming PC</a>
+                </div>
+            </li>
+        </ul>
+
+    <!-- Title of page -->
+    <header>
+        <h1 style="font-size: 400%">Video Games</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                        <section>
+                            <div class = "container"> 
+                                <h2>${products[i].product}</h2>
+                                <p style = "color:blue; font-size:x-large;">$${products[i].price}</p>
+                                <div class="img-hover-zoom">
+                                    <img src = ${products[i].image}>
+                                </div>
+                                <p><strong>Specifications:</strong>:<br>${products[i].specifications}</p>
+                            </div>
+                        </section>
+                    `)
+                };
+            </script>
+        </main>
+    </div>
+
+    <!-- Button that leads to the Form page on click -->
+    <div class="button">
+            <a href="./form.html" class="button">Press me for Order Page</a>
+    </div>
+
+</body>
+
+</html>

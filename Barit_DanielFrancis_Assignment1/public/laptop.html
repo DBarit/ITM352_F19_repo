@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css"/> <!-- Linking Products Style Sheet-->
+    <title>Laptops</title>
+
+    <script>
+        //Setting numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Laptop page
+        var product1 = {
+            product: "Apple MacBook Pro 15'' (2019)",
+            price: 2399.00,
+            image: "./images/Laptops/MacBookPro.png",
+            specifications: "CPU: 2.4GHz Intel Core i9 processor (octa-core, up to 5.0GHz) <br> Graphics: AMD Radeon Pro Vega 20 RAM: 32GB (2,400MHz DDR4) <br> Screen: 15.4-in, 2,880x1,800 Retina display (backlit LED) <br> Storage: 4TB SSD <br> Ports: 4x Thunderbolt 3 (USB-C), 3.5mm headphone jack <br> Connectivity: 802.11ac Wi-F, Bluetooth 5.0 Camera: 720p FaceTime HD webcam <br> Dimensions: 13.75 x 9.48 x 0.61 inches <br> Weight: 4.02 pounds (1.83kg)"
+        };
+        var product2 = {
+            product: "Razer Blade Pro 17",
+            price: 2499.99,
+            image: "./images/Laptops/RazerBlade.png",
+            specifications: "CPU: 2.6GHz Intel Core i7-9750H (hexa-core, 9MB cache, up to 4.5GHz) <br> GPU: Nvidia GeForce RTX 2080 Max-Q (8GB GDDR6 VRAM) <br> RAM: 16GB DDR4 (2,667MHz) <br> Screen: 17.3-inch, Full HD (1,920x1,080) TFT (144Hz refresh rate) <br> Storage: 512GB M.2 PCIe SSD <br> Ports: 1 x USB 3.2 (USB Type-C), 1 x USB 3.2 + Thunderbolt 3 (USB Type-C), 3 x USB 3.2, 1 x HDMI 2.0b, headset jack, 2.5Gb Ethernet LAN, UHS-III SD card reader <br> Connectivity: 802.11ax Wi-Fi, Bluetooth 5.0 <br> Camera: HD webcam (720p) <br> Dimensions: 15.55 x 10.24 x 0.78 inches <br> Weight: 6.06 pounds (2.75kg)"
+        };
+        var product3 = {
+            product: "Lenovo ThinkPad X1 Carbon Gen 7 (2019)",
+            price: 2609.00,
+            image: "./images/Laptops/Lenovo.png",
+            specifications: "CPU: Intel Core i5-82625U / Intel Core i7-8665U <br> GPU: Intel UHD Graphics 620 (integrated) <br> Memory: 8GB / 16GB LPDDR3 2133MHz <br> Storage: 256GB / 512GB NVMe-PCIe SSD <br> Networking: Intel 9560 802.11ac <br> Ports: 2x USB 3.1 Gen 1 Type-A, 2x Thunderbolt 3, HDMI 1.4, Proprietary Ethernet, Headphone/Mic combo jack <br> Camera: 720p / 720p IR <br> Battery: 51Wh Li-Polymer /Power Adapter 65W <br> Operating System: Windows 10 Pro <br> Dimensions: 12.74 x 8.55 x 0.59 inches <br> Weight 2.4 pounds (1.1 kg)"
+        };
+        var product4 = {
+            product: "Dell XPS 15 7590 (2019)",
+            price: 1849.99,
+            image: "./images/Laptops/DellXPS.png",
+            specifications: "CPU: Intel 9th-gen Core i9-9980HK <br> GPU: NVIDIA® GeForce® GTX 1650 4GB GDDR5 <br> RAM: 32GB DDR4/2666 <br> Display: 15.6-inch 4K OLED @ 60Hz <br> GPU: GeForce GTX 1650 <br> Storage: 1GB Samsung NVMe M.2 SSD <br> Ports: 2 USB Type A, 1 Thunderbolt 3 (4 lane), HDMI 2.0, Analog headphone, SD Card, Noble lock port <br> Networking: Killer Wi-Fi 6 AX1650 (2x2) and Bluetooth 5.0 <br> Battery: 6-Cell, 97 WHr, Integrated battery <br> Dimensions: 14.06 x 9.7 x 0.66 inches <br> Weight: 4.4 pounds "
+        };
+        var product5 = {
+            product: "Acer Swift 7",
+            price: 1699.99,
+            image: "./images/Laptops/AcerSwift.png",
+            specifications: "CPU: 1.5GHz Intel Core i7-8500Y (dual-core, 4MB cache, up to 4.2GHz) <br> GPU: Intel UHD Graphics 615 <br> RAM: 8GB LPDDR3 <br> Screen: 14-inch, Full HD (1,920 x 1,080) CineCrystal IPS touch display <br> Storage: 512GB NVMe SSD <br> Ports: 2 x Thunderbolt 3 (USB-C), headset jack <br> Connectivity: Intel Wireless-AC 9260 802.11ac Wi-Fi, Bluetooth <br> Camera: HD (720p) webcam with dual microphones <br> Dimensions: 12.48 x 7.55 x 0.39 inches <br> Weight: 1.96 pounds (0.89kg)"
+        };
+
+        //Create an array of the products listed and set it to a variable 
+        var products = [product1, product2, product3, product4, product5];
+    </script>
+</head>
+
+<body>
+
+    <!-- Retrived from W3Schools. Source: https://www.w3schools.com/css/css_navbar.asp (HTML & CSS) -->
+    <!-- Navigation Bar -->
+    <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="laptop.html" class="dropbtn">Laptops</a>
+                <div class="dropdown-content">
+                    <a href="laptop.html">Apple MacBook Pro 15''</a>
+                    <a href="laptop.html">Razer Blade Pro 17''</a>
+                    <a href="laptop.html">Lenovo ThinkPad X1 Carbon Gen 7</a>
+                    <a href="laptop.html">Dell XPS 15 7590</a>
+                    <a href="laptop.html">Acer Swift 7</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="cellphones.html" class="dropbtn">Cell Phones</a>
+                <div class="dropdown-content">
+                    <a href="cellphones.html">Apple iPhone 11 Pro Max</a>
+                    <a href="cellphones.html">Samsung Galaxy Note 10+</a>
+                    <a href="cellphones.html">Google Pixel 4 XL</a>
+                    <a href="cellphones.html">Huawei P30 Pro</a>
+                    <a href="cellphones.html">OnePlus 7 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="tablets.html" class="dropbtn">Tablets</a>
+                <div class="dropdown-content">
+                    <a href="tablets.html">Apple iPad Pro 12.9''</a>
+                    <a href="tablets.html">Apple 10.2'' iPad</a>
+                    <a href="tablets.html">Microsoft Surface Pro X</a>
+                    <a href="tablets.html">Samsung Galaxy Tab S6</a>
+                    <a href="tablets.html">Lenovo Yoga Tab 3 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="videogames.html" class="dropbtn">Video Games</a>
+                <div class="dropdown-content">
+                    <a href="videogames.html">Playstation 4 Pro</a>
+                    <a href="videogames.html">Xbox One X</a>
+                    <a href="videogames.html">Nintendo Switch</a>
+                    <a href="videogames.html">Alienware Area-51 Gaming Desktop</a>
+                    <a href="videogames.html">Corsair ONE i165 Compact Gaming PC</a>
+                </div>
+            </li>
+        </ul>
+
+    <!-- Title of page -->
+    <header>
+        <h1 style="font-size: 400%">Laptops</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                            <section> 
+                                <div class = "container"> 
+                                    <h2>${products[i].product}</h2>
+                                    <p style = "color:blue; font-size:x-large;">$${products[i].price}</p>
+                                    <div class="img-hover-zoom">
+                                        <img src = ${products[i].image}> 
+                                        </div>
+                                        <p><strong>Specifications:</strong><br>${products[i].specifications}</p>
+                                    </div>
+                                </section>
+                            `)
+                };
+            </script>
+        </main>
+    </div>
+
+    <!-- Button that leads to the Form page on click -->
+    <div class="button">
+            <a href="./form.html" class="button">Press me for Order Page</a>
+    </div>
+</body>
+
+</html>

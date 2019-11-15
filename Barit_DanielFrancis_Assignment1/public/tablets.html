@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="products-style.css" />
+    <title>Tablets</title>
+
+    <script>
+        //Set numberItems variable to 5
+        var numberItems = 5;
+
+        //Product Data for Tablets page
+        var product11 = {
+            product: "Apple iPad Pro 12.9''",
+            price: 1149.00,
+            image: "./images/Tablets/iPadPro.png",
+            specifications: "Dimensions: 11 x 8.46 x 0.23 inches <br> Capacity: 1TB <br> Chip: A12X Bionic chip with 64-bit architecture, Neural Engine, Embedded M12 coprocessor <br> Camera: 12-megapixel & 4k video recording <br> Battery: Built-in 36.71-watt-hour rechargeable lithium-polymer <br> Weight: 1.4lbs (633 grams)"
+        };
+        var product12 = {
+            product: "Apple 10.2'' iPad (2019)",
+            price: 429.00,
+            image: "./images/Tablets/iPad2019.png",
+            specifications: "Dimensions: 9.8 x 6.8 x 0.29 inches<br> Capacity: 128GB <br> Chip: A10 Fusion chip with 64‑bit architecture, Embedded M10 coprocessor <br> Camera: 8-megapixel <br> Battery: Built‐in 32.4‐watt‐hour rechargeable lithium‑polymer battery <br> Weight: 1.09lbs (493 grams)"
+        };
+        var product13 = {
+            product: "Microsoft Surface Pro X",
+            price: 999.99,
+            image: "./images/Tablets/SurfaceProX.png",
+            specifications: "Dimensions: 11.3 x 8.2 x 0.28 inches <br> CPU: Microsoft SQ1 <br> RAM: 8GB or 16GB <br> Display: 13 inches (2880 x 1920) <br> Memory: 8GB RAM / Storage: 512GB <br> Battery life: 13 hours (rated) <br> Weight: 1.68lbs"
+        };
+        var product14 = {
+            product: "Samsung Galaxy Tab S6",
+            price: 729.99,
+            image: "./images/Tablets/SGTab.jpg",
+            specifications: "Dimensions: 9.63 x 6.28 x 0.22 inches <br> CPU: Qualcomm Snapdragon 855 <br> Display: 10.5-inch Super AMOLED <br> Memory: 8GB RAM / Storage: 256GB <br> Weight: 0.92lbs (420g)"
+        };
+        var product15 = {
+            product: "Lenovo Yoga Tab 3 Pro",
+            price: 349.99,
+            image: "./images/Tablets/LenovoTab.png",
+            specifications: "Dimensions: 9.72 x 7.05 x 0.18 inches <br> CPU: Intel Atom x5-Z8550 (2.40GHz 2MB) <br> Display: 10.1 QHF LCD IPS Muti-touch <br> Memory: 4GB RAM / Storage: 64GB <br> Weight: 1.5lbs"
+        };
+
+        //Create an array of the products listed and set it to a variable 
+        var products = [product11, product12, product13, product14, product15];
+    </script>
+</head>
+
+<body>
+
+    <!-- Retrived from W3Schools. Source: https://www.w3schools.com/css/css_navbar.asp (HTML & CSS) -->
+    <!-- Navigation Bar -->
+    <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="laptop.html" class="dropbtn">Laptops</a>
+                <div class="dropdown-content">
+                    <a href="laptop.html">Apple MacBook Pro 15''</a>
+                    <a href="laptop.html">Razer Blade Pro 17''</a>
+                    <a href="laptop.html">Lenovo ThinkPad X1 Carbon Gen 7</a>
+                    <a href="laptop.html">Dell XPS 15 7590</a>
+                    <a href="laptop.html">Acer Swift 7</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="cellphones.html" class="dropbtn">Cell Phones</a>
+                <div class="dropdown-content">
+                    <a href="cellphones.html">Apple iPhone 11 Pro Max</a>
+                    <a href="cellphones.html">Samsung Galaxy Note 10+</a>
+                    <a href="cellphones.html">Google Pixel 4 XL</a>
+                    <a href="cellphones.html">Huawei P30 Pro</a>
+                    <a href="cellphones.html">OnePlus 7 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="tablets.html" class="dropbtn">Tablets</a>
+                <div class="dropdown-content">
+                    <a href="tablets.html">Apple iPad Pro 12.9''</a>
+                    <a href="tablets.html">Apple 10.2'' iPad</a>
+                    <a href="tablets.html">Microsoft Surface Pro X</a>
+                    <a href="tablets.html">Samsung Galaxy Tab S6</a>
+                    <a href="tablets.html">Lenovo Yoga Tab 3 Pro</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="videogames.html" class="dropbtn">Video Games</a>
+                <div class="dropdown-content">
+                    <a href="videogames.html">Playstation 4 Pro</a>
+                    <a href="videogames.html">Xbox One X</a>
+                    <a href="videogames.html">Nintendo Switch</a>
+                    <a href="videogames.html">Alienware Area-51 Gaming Desktop</a>
+                    <a href="videogames.html">Corsair ONE i165 Compact Gaming PC</a>
+                </div>
+            </li>
+        </ul>
+
+    <!-- Title of page -->
+    <header>
+        <h1 style="font-size: 400%">Tablets</h1>
+    </header>
+
+    <div>
+        <main>
+            <script>
+                //For loop that displays the product name, price, image, and specifications
+                //If i is equal to 0 and if i is less than numberItems then add i and display product information
+                for (i = 0; i <= numberItems; i++) {
+                    document.write(`
+                        <section>
+                            <div class = "container"> 
+                                <h2>${products[i].product}</h2>
+                                <p style = "color:blue; font-size:x-large;">$${products[i].price}</p>
+                                <div class="img-hover-zoom">
+                                    <img src = ${products[i].image}>
+                                </div>
+                                <p><strong>Specifications:</strong><br>${products[i].specifications}</p>
+                            </div>
+                        </section>
+                    `)
+                };
+            </script>
+        </main>
+    </div>
+
+    <!-- Button that leads to the Form page on click -->
+    <div class="button">
+        <a href="./form.html" class="button">Press me for Order Page</a>
+    </div>
+
+</body>
+
+</html>
