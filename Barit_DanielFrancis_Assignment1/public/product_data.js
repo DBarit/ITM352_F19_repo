@@ -1,3 +1,9 @@
+/* 
+Author: Daniel Francis Barit
+Date: 11/14/2019
+File Description: Product Data Javascript Array 
+*/
+
 //Set product_data variable to an array of all the data in my store
 var product_data = [
     { 
