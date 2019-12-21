@@ -1,0 +1,245 @@
+<!--
+Authors: Shane Shimizu, Daniel Francis Barit, Kiara Fairbairn
+File Description: Cart that displays items user added to the cart and recently viewed items; uses local storage and cookies
+Date: December 19, 2019
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="products.js"></script>
+    <script src="addtocart.js"></script>
+    <script src="store.js"></script>
+    <script src="userproducts.js"></script>
+
+</head>
+<script>
+    //parse the localStorage with respective name and store in variable for each product
+    storedAlohaBowlCart = JSON.parse(localStorage.getItem("alohaBowlCart"));
+    storedManaBowlCart = JSON.parse(localStorage.getItem("manaBowlCart"));
+    storedWomensShirtCart = JSON.parse(localStorage.getItem("womensShirtCart"));
+    storedMensShirtCart = JSON.parse(localStorage.getItem("mensShirtCart"));
+    storedWomensSleeveCart = JSON.parse(localStorage.getItem("womensSleeveCart"));
+    storedMensSleeveCart = JSON.parse(localStorage.getItem("mensSleeveCart"));
+    storedWomensJacketCart = JSON.parse(localStorage.getItem("womensJacketCart"));
+    storedMensJacketCart = JSON.parse(localStorage.getItem("mensJacketCart"));
+    storedHatCart = JSON.parse(localStorage.getItem("hatCart"));
+    storedBagCart = JSON.parse(localStorage.getItem("bagCart"));
+    storedChainCart = JSON.parse(localStorage.getItem("chainCart"));
+    storedBottleCart = JSON.parse(localStorage.getItem("storedBottleCart"));
+    //push the object stored in the previously declared variables in storedUsersCartArray
+    storedUsersCartArray.push(storedAlohaBowlCart);
+    storedUsersCartArray.push(storedManaBowlCart);
+    storedUsersCartArray.push(storedWomensShirtCart);
+    storedUsersCartArray.push(storedMensShirtCart);
+    storedUsersCartArray.push(storedWomensSleeveCart);
+    storedUsersCartArray.push(storedMensSleeveCart);
+    storedUsersCartArray.push(storedWomensJacketCart);
+    storedUsersCartArray.push(storedMensJacketCart);
+    storedUsersCartArray.push(storedHatCart);
+    storedUsersCartArray.push(storedBagCart);
+    storedUsersCartArray.push(storedChainCart);
+    storedUsersCartArray.push(storedBottleCart);
+    //if the storedUsersCartArray is not empty
+    if (storedUsersCartArray != null) {
+        var updatedCartArray = storedUsersCartArray.filter(function (el) { return el; }); //filter/get rid of extra spaces/null spaces in the array
+    }
+    //functiont to display the products added to cart
+    function displayUserProducts() {
+        for (i = 0; i < updatedCartArray.length; i++) { //for loop to display product information based on the array length
+            //note: onkeyup calls function to check if the quantity entered by the user is valid
+            document.write(`
+            <div class="shop-item">
+            <span class="shop-item-title">${updatedCartArray[i].model}</span>
+            <div class="enlarge">
+                <img class="shop-item-image" src=${updatedCartArray[i].image}>
+            </div>
+            <hr class="space" />
+            <div class="shop-item-description">${updatedCartArray[i].description}</div>
+            <hr class="space" />
+            <div class="shop-item-details">
+                <hr class="space" />
+                <span class="shop-item-price">$${updatedCartArray[i].price.toFixed(2)}</span>
+                <label id="quantity${i}_label" class="shop-item-quantity">Quantity: </label>
+                <input class="cart-quantity-input" type="text" name="quantity${i}" onkeyup=checkQuantityTextbox(this); placeholder="0">
+            </div>
+            </div>
+        `);
+        }
+    }
+    //function to clear localStorage or items added to cart
+    function clearCart() {
+        localStorage.clear(); //clear localStorage function
+        alert("cart has been cleared"); //alert the user the cart is cleared
+        window.location.reload(); //reload the window to update the page to show no items are in cart
+    }
+    let params = (new URL(document.location)).searchParams;
+    if (params.has("quantityError")) { //if there are errors
+        alert(params.get('quantityError')); //alert appropriate quantity error
+    }
+    //create an initial array to push products stored in cookies
+    var recentViewArray = [];
+    //create another array that filters null spaces from the recentViewArray
+    var updatedRecentArray = [];
+    //Source W3 Schools Cookies: https://www.w3schools.com/js/js_cookies.asp
+    //function to set cookie
+    function setCookie0(cname, cvalue, exdays) { //passes the name of the cookie, the value of the cookie, and the experation date for cookie as parameters
+        var d = new Date(); //declare d as the current date
+        d.setTime(d.getTime() + (exdays * 10000)); //sets the expiration of cookie to 5 minutes after being set
+        var expires = "expires=" + d.toGMTString(); //delcares expires as convert date object to string and returns it
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; //sets/documents the cookie and concatnates with the name, value, expiration, and path of the cookie
+    }
+    //function to retrieve the cookie
+    function getCookie0(cname) { //uses cname (cookie name) as parameter
+        var name = cname + "="; //declares name with the text to look for the cookie name + "="
+        var decodedCookie = decodeURIComponent(document.cookie); //decodes the cookie to manage cookies with special characters
+        var ca = decodedCookie.split(';'); //split the cookie on semi-colons into an array
+        for (var i = 0; i < ca.length; i++) { //for thje lengh of ca/decoded cookie
+            var c = ca[i]; //delcare c and read out each value
+            while (c.charAt(0) == ' ') {// while index at specified string == 0
+                c = c.substring(1); //c now is now given string 
+            }
+            if (c.indexOf(name) == 0) { //if the cookie is located at the 0 index
+                return c.substring(name.length, c.length); //return the cookie value
+            }
+        }
+        return ""; //return "" if the cookie does not exist
+    }
+    //function that checks to see if a cookie is set and gets them
+    function checkTheseCookies0() {
+        //declare variables and gets the cookie with the respective name with product informaiton
+        alohaBowlCookie = getCookie0("alohabowl");
+        manaBowlCookie = getCookie0("manabowl");
+        womensShirtCookie = getCookie0("womensshirt");
+        mensShirtCookie = getCookie0("mensshirt");
+        womensSleeveCookie = getCookie0("womenssleeve");
+        mensSleeveCookie = getCookie0("menssleeve");
+        womensJacketCookie = getCookie0("womensjacket");
+        mensJacketCookie = getCookie0("mensjacket");
+        makaiHatCookie = getCookie0("makaihat");
+        makaiBagCookie = getCookie0("makaibag");
+        makaiChainCookie = getCookie0("makaichain");
+        makaiBottleCookie = getCookie0("makaibottle");
+        if (alohaBowlCookie != "" && alohaBowlCookie != null) { //if alohaBowlCookie does not equal empty string and does not equal no value
+            finalAloha = JSON.parse(alohaBowlCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalAloha); //push the object into recentViewArray
+        }
+        if (manaBowlCookie != "" && manaBowlCookie != null) { //if manaBowlCookie does not equal empty string and does not equal no value
+            finalMana = JSON.parse(manaBowlCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalMana); //push the object into recentViewArray
+        }
+        if (womensShirtCookie != "" && womensShirtCookie != null) { //if womensShirtCookie does not equal empty string and does not equal no value
+            finalWoShirt = JSON.parse(womensShirtCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalWoShirt); //push the object into recentViewArray
+        }
+        if (mensShirtCookie != "" && mensShirtCookie != null) { //if mensShirtCookie does not equal empty string and does not equal no value
+            finalMeShirt = JSON.parse(mensShirtCookie);//parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalMeShirt); //push the object into recentViewArray
+        }
+        if (womensSleeveCookie != "" && womensSleeveCookie != null) { //if womensSleeveCookie does not equal empty string and does not equal no value
+            finalWoSleeve = JSON.parse(womensSleeveCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalWoSleeve); //push the object into recentViewArray
+        }
+        if (mensSleeveCookie != "" && mensSleeveCookie != null) { //if mensSleeveCookie does not equal empty string and does not equal no value
+            finalMeSleeve = JSON.parse(mensSleeveCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalMeSleeve); //push the object into recentViewArray
+        }
+        if (womensJacketCookie != "" && womensJacketCookie != null) { //if womensJacketCookie does not equal empty string and does not equal no value
+            finalWoJacket = JSON.parse(womensJacketCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalWoJacket); //push the object into recentViewArray
+        }
+        if (mensJacketCookie != "" && mensJacketCookie != null) { //if mensJacketCookie does not equal empty string and does not equal no value
+            finalMeJacket = JSON.parse(mensJacketCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalMeJacket); //push the object into recentViewArray
+        }
+        if (makaiHatCookie != "" && makaiHatCookie != null) { //if makaiHatCookie does not equal empty string and does not equal no value
+            finalHat = JSON.parse(makaiHatCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalHat); //push the object into recentViewArray
+        }
+        if (makaiBagCookie != "" && makaiBagCookie != null) { //if makaiBagCookie does not equal empty string and does not equal no value
+            finalBag = JSON.parse(makaiBagCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalBag); //push the object into recentViewArray
+        }
+        if (makaiChainCookie != "" && makaiChainCookie != null) { //if makaiChainCookie does not equal empty string and does not equal no value
+            finalChain = JSON.parse(makaiChainCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalChain); //push the object into recentViewArray
+        }
+        if (makaiBottleCookie != "" && makaiBottleCookie != null) { //if makaiBottleCookie does not equal empty string and does not equal no value
+            finalBottle = JSON.parse(makaiBottleCookie); //parse variable storing the respective cookie name and store in final variable
+            recentViewArray.push(finalBottle); //push the object into recentViewArray
+        }
+        if (recentViewArray != null) { //if recentViewArray does not equal no values
+            updatedRecentArray = recentViewArray.filter(function (el) { return el; }); //previosly declared updatedRecentArray variable with empty array now stores items in recentViewArray and filters null indexes
+        }
+        if (updatedRecentArray.length == 0) { //if updatedRecentArray length is 0
+            document.write('No recent items viewed'); //no items are in the array and tell the user
+        }
+        for (i = 0; i < updatedRecentArray.length; i++) { //for loop to display products on page based on the items inside the array and its length
+            /*
+                -document.write products in the array
+                -function on regular expression gets ride of spaces in string; allows user to properly be redirected to the respectuve file of product when clicked on
+                regular expression source: https://stackoverflow.com/questions/5964373/is-there-a-difference-between-s-g-and-s-g
+            */
+            document.write(`
+                        <div class="shop-item">
+                            <div class="enlarge">
+                                <a href="${(updatedRecentArray[i].model).replace(/\s+/g, '')}.html"><span class="shop-item-title">${updatedRecentArray[i].model}</span></a>
+                                <img class="shop-item-image" src=${updatedRecentArray[i].image}>
+                            </div>
+                            <div class="shop-item-details">
+                                <span class="shop-item-price">$${updatedRecentArray[i].price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    `);
+        }
+    }
+</script>
+
+<body>
+    <header class="main-header">
+        <nav class="main-nav nav">
+            <ul>
+                <li><a href="index.html"><img src="Images/brandlogo.png" class="brandlogo"></a></li>
+                <li></li>
+                <!--empty space for design-->
+                <li></li>
+                <!--empty space for design-->
+                <li><a href="index.html">H O M E</a></li>
+                <li><a href="store.html">S H O P</a></li>
+                <li><a href="cart.html">C A R T</a></li>
+                <li><a href="login.html">L O G I N</a></li>
+
+
+            </ul>
+        </nav>
+        <h1 class="title-name title-name-large">CART</h1>
+    </header>
+    <section class="container content-section">
+        <!--creates an HTML form and the action upon submission is process_form, browser will send the data to the web server to be processed with POST.-->
+        <form name="product_selection_form" action="/process_form" method="POST">
+            <h2 class="section-header">Current Items In Cart</h2>
+            <div class="shop-items">
+                <!--calls function to display products on page-->
+                <script>displayUserProducts();</script>
+            </div>
+            <input class="btn btn-primary btn-purchase" type="submit" name="purchase_submit" value="P U R C H A S E">
+        </form>
+        <button class="btn btn-primary btn-purchase" onclick="clearCart()">Clear Cart</button>
+        <section class="container content-section">
+            <h2 class="section-header" id="bowls-section">Recently Viewed Items</h2>
+            <p style="text-align: center;">Recently Viewed List Will Clear After 5 min</p>
+            <div class="shop-items">
+                <!--calls function to checkCookies and displays products based products clicked/cookies set-->
+                <script>checkTheseCookies0()</script>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>
